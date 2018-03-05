@@ -177,7 +177,6 @@
 				TargetAttributes = {
 					0DE4D2591DCBF29B000150AA = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 2JJZ96P8P5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -411,7 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MasFingerprintSample/MasFingerprintSample.entitlements;
-				DEVELOPMENT_TEAM = 2JJZ96P8P5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -430,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MasFingerprintSample/MasFingerprintSample.entitlements;
-				DEVELOPMENT_TEAM = 2JJZ96P8P5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
