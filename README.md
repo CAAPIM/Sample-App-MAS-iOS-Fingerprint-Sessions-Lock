@@ -4,8 +4,8 @@ Back to > [iOS Mobile SDK](https://github.com/CAAPIM/iOS-MAS-SDK)
 This sample app uses the MASFoundation and MASUI frameworks of the MAS SDK.
 
 <br>**Required:**
-* Xcode (Latest Version) - Install from App Store
-* Cocoapods (latest version) - Install from https://cocoapods.org/
+* Xcode, latest version installed from App Store
+* CocoaPods, latest version installed from https://cocoapods.org/
 * Device with Passcode and Fingerprint locks enabled
 * Device required for fingerprint</br>
 
