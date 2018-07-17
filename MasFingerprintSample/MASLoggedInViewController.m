@@ -59,7 +59,7 @@
     //
     // Attempt to logout the user
     //
-    [[MASUser currentUser] logoutWithCompletion:^(BOOL completed, NSError *error) {
+    [[MASUser currentUser] logout:NO completion:^(BOOL completed, NSError *error) {
         
         //
         // Stop the activity indicator view
