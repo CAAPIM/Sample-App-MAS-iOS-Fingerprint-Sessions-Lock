@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
+@property (weak, nonatomic) IBOutlet UIButton *lockToggleBtn;
+
 @end
 
 @implementation MASLoggedInViewController
@@ -30,13 +32,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self getProtectedResponseInfo];
+    self.activityIndicatorView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([[MASUser currentUser] isSessionLocked]) {
+        [self.lockToggleBtn setTitle:@"Unlock" forState:UIControlStateNormal];
+    } else {
+        [self.lockToggleBtn setTitle:@"Lock" forState:UIControlStateNormal];
+    }
 }
 
 
@@ -85,6 +95,10 @@
     }];
 }
 
+- (IBAction)fetchButtonTouched:(UIButton *)sender {
+    [self setResponseProducts:nil];
+    [self getProtectedResponseInfo];
+}
 
 /**
  * Attempt to lock the current session and display lock screen
@@ -93,40 +107,34 @@
  */
 - (IBAction)lockButtonTouched:(UIButton *)sender
 {
-    //
-    // Attempt to lock the current session
-    //
-    [[MASUser currentUser] lockSessionWithCompletion:^(BOOL completed, NSError *error) {
-        
-        //
-        // Log any errors that may have occured
-        //
-        if (error)
-        {
-            NSLog(@"ERROR:%@",[error localizedDescription]);
-            return;
-        }
-        
-        //
-        // Success
-        //
-        if (completed)
-        {
+    if ([[MASUser currentUser] isSessionLocked]) {
+        [MASUser presentSessionLockScreenViewController:^(BOOL completed, NSError *error) {
+            
             //
-            // Present the lock screen - custom or default.
+            // Log any errors that may have occured
             //
-            [MASUser presentSessionLockScreenViewController:^(BOOL completed, NSError *error) {
-                
-                //
-                // Log any errors that may have occured
-                //
-                if (error)
-                {
-                    NSLog(@"ERROR:%@",[error localizedDescription]);
-                }
-            }];
-        }
-    }];
+            if (error)
+            {
+                NSLog(@"ERROR:%@",[error localizedDescription]);
+            } else {
+                [self.lockToggleBtn setTitle:@"Lock" forState:UIControlStateNormal];
+            }
+        }];
+    } else {
+        [[MASUser currentUser] lockSessionWithCompletion:^(BOOL completed, NSError *error) {
+            
+            //
+            // Log any errors that may have occured
+            //
+            if (error)
+            {
+                NSLog(@"ERROR:%@",[error localizedDescription]);
+            } else {
+                [self.lockToggleBtn setTitle:@"Unlock" forState:UIControlStateNormal];
+                NSLog(@"Locked successfully");
+            }
+        }];
+    }
 }
 
 
