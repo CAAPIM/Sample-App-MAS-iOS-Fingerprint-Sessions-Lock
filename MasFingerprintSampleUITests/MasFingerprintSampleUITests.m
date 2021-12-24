@@ -58,7 +58,7 @@
     return app;
 }
 
-- (void)testInitialScreen {
+- (void)testLockUnlockSession {
     XCUIApplication *app = [self initializeApp];
     [app launch];
     [app swipeUp];
