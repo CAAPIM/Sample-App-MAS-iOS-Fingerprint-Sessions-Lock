@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     self.activityIndicatorView.hidden = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,11 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if ([[MASUser currentUser] isSessionLocked]) {
-        [self.lockToggleBtn setTitle:@"Unlock" forState:UIControlStateNormal];
-    } else {
-        [self.lockToggleBtn setTitle:@"Lock" forState:UIControlStateNormal];
-    }
+    [self updateLockUnlockButtonLabel];
 }
 
 
@@ -254,6 +252,23 @@
     // darker background
     //
     return UIStatusBarStyleLightContent;
+}
+
+- (void)appDidBecomeActive:(NSNotification *)notification {
+    [self updateLockUnlockButtonLabel];
+}
+
+- (void)appWillEnterForeground:(NSNotification *)notification {
+    [self updateLockUnlockButtonLabel];
+}
+
+- (void)updateLockUnlockButtonLabel
+{
+    if ([[MASUser currentUser] isSessionLocked]) {
+        [self.lockToggleBtn setTitle:@"Unlock" forState:UIControlStateNormal];
+    } else {
+        [self.lockToggleBtn setTitle:@"Lock" forState:UIControlStateNormal];
+    }
 }
 
 # pragma mark - UITableViewDelegate
