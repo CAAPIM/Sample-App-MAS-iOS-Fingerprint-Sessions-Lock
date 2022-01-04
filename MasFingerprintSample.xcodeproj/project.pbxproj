@@ -15,8 +15,20 @@
 		0DE4D26F1DCBF29B000150AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE4D26D1DCBF29B000150AA /* Main.storyboard */; };
 		0DE4D29D1DCC01AF000150AA /* MASLoggedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE4D29C1DCC01AF000150AA /* MASLoggedInViewController.m */; };
 		48B4D55A1FE8A19A00F9C61D /* msso_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B4D5591FE8A19A00F9C61D /* msso_config.json */; };
+		59F049F7278360AD007AD13D /* MasFingerprintSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F049F6278360AD007AD13D /* MasFingerprintSampleUITests.m */; };
+		59F049F9278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F049F8278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m */; };
 		9914395290CE561B51AC432F /* libPods-MasFingerprintSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9D046BC7DF7296D8EAE507 /* libPods-MasFingerprintSample.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59F049FA278360AD007AD13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DE4D2521DCBF29B000150AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DE4D2591DCBF29B000150AA;
+			remoteInfo = MasFingerprintSample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		CB0B5E2C1DDB958800A46BAD /* Embed Frameworks */ = {
@@ -48,6 +60,9 @@
 		294231B0A6554545EB1A1C86 /* Pods-MasFingerprintSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasFingerprintSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample.debug.xcconfig"; sourceTree = "<group>"; };
 		48B4D5591FE8A19A00F9C61D /* msso_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msso_config.json; sourceTree = "<group>"; };
 		581D82A7E1C7B8BC06E6F77F /* Pods-MasFingerprintSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasFingerprintSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample.release.xcconfig"; sourceTree = "<group>"; };
+		59F049F4278360AD007AD13D /* MasFingerprintSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasFingerprintSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F049F6278360AD007AD13D /* MasFingerprintSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasFingerprintSampleUITests.m; sourceTree = "<group>"; };
+		59F049F8278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasFingerprintSampleUITestsLaunchTests.m; sourceTree = "<group>"; };
 		9C9D046BC7DF7296D8EAE507 /* libPods-MasFingerprintSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasFingerprintSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59F049F1278360AD007AD13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +90,7 @@
 			children = (
 				48B4D5591FE8A19A00F9C61D /* msso_config.json */,
 				0DE4D25C1DCBF29B000150AA /* MasFingerprintSample */,
+				59F049F5278360AD007AD13D /* MasFingerprintSampleUITests */,
 				0DE4D25B1DCBF29B000150AA /* Products */,
 				A23C337F40E6908D2FDA9B13 /* Pods */,
 				CE66B8779DE355C4E991A35D /* Frameworks */,
@@ -78,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE4D25A1DCBF29B000150AA /* MasFingerprintSample.app */,
+				59F049F4278360AD007AD13D /* MasFingerprintSampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +149,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		59F049F5278360AD007AD13D /* MasFingerprintSampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				59F049F6278360AD007AD13D /* MasFingerprintSampleUITests.m */,
+				59F049F8278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m */,
+			);
+			path = MasFingerprintSampleUITests;
+			sourceTree = "<group>";
+		};
 		A23C337F40E6908D2FDA9B13 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +198,24 @@
 			productReference = 0DE4D25A1DCBF29B000150AA /* MasFingerprintSample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		59F049F3278360AD007AD13D /* MasFingerprintSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59F049FC278360AD007AD13D /* Build configuration list for PBXNativeTarget "MasFingerprintSampleUITests" */;
+			buildPhases = (
+				59F049F0278360AD007AD13D /* Sources */,
+				59F049F1278360AD007AD13D /* Frameworks */,
+				59F049F2278360AD007AD13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59F049FB278360AD007AD13D /* PBXTargetDependency */,
+			);
+			name = MasFingerprintSampleUITests;
+			productName = MasFingerprintSampleUITests;
+			productReference = 59F049F4278360AD007AD13D /* MasFingerprintSampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +241,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -199,6 +251,7 @@
 			projectRoot = "";
 			targets = (
 				0DE4D2591DCBF29B000150AA /* MasFingerprintSample */,
+				59F049F3278360AD007AD13D /* MasFingerprintSampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +268,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59F049F2278360AD007AD13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -224,18 +284,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample-frameworks.sh",
+				"${PODS_ROOT}/MAS-Proximity/MASProximity.framework",
 				"${PODS_ROOT}/MASFoundation/MASFoundation.framework",
 				"${PODS_ROOT}/MASUI/MASUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MASProximity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MASFoundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MASUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		80B0D623F590B406FC90BC30 /* [CP] Check Pods Manifest.lock */ = {
@@ -270,7 +332,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		59F049F0278360AD007AD13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F049F7278360AD007AD13D /* MasFingerprintSampleUITests.m in Sources */,
+				59F049F9278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59F049FB278360AD007AD13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DE4D2591DCBF29B000150AA /* MasFingerprintSample */;
+			targetProxy = 59F049FA278360AD007AD13D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0DE4D26A1DCBF29B000150AA /* LaunchScreen.storyboard */ = {
@@ -426,6 +505,73 @@
 			};
 			name = Release;
 		};
+		59F049FD278360AD007AD13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3373528RD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AshwinSurabhi.MasFingerprintSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MasFingerprintSample;
+			};
+			name = Debug;
+		};
+		59F049FE278360AD007AD13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L3373528RD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AshwinSurabhi.MasFingerprintSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MasFingerprintSample;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -443,6 +589,15 @@
 			buildConfigurations = (
 				0DE4D28A1DCBF29C000150AA /* Debug */,
 				0DE4D28B1DCBF29C000150AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59F049FC278360AD007AD13D /* Build configuration list for PBXNativeTarget "MasFingerprintSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F049FD278360AD007AD13D /* Debug */,
+				59F049FE278360AD007AD13D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
