@@ -8,24 +8,35 @@
 
 #import <XCTest/XCTest.h>
 
-#define APP_PERMISSIONS_LABEL @"Allow While Using App"
-#define INTERRUPTION_MONITOR_DESCRIPTION @"TestInitialScreenHandler"
-#define LOGIN_BUTTON_LABEL @"Login"
-#define USER_NAME @"admin"
-#define ADMIN_PASSWORD @"7layer"
+#define KEY_LABEL_PERMISSIONS_ALLOW_BUTTON @"label.permissions.allow.button"
+#define KEY_INTERRUPT_MONITOR_DESCRIPTION @"interrupt.monitor.description"
+#define KEY_LABEL_LOGIN_BUTTON @"label.login.button"
+#define KEY_LABEL_FETCH_BUTTON @"label.fetch.button"
+#define KEY_LABEL_LOCK_BUTTON @"label.lock.button"
+#define KEY_LABEL_UNLOCK_BUTTON @"label.unlock.button"
+#define KEY_TEXT_LOGGED_IN @"text.logged.in"
+#define KEY_TEXT_RED_STAPLER @"text.red.stapler"
+
+#define SAMPLE_USER_NAME @"admin"
+#define SAMPLE_USER_PASSWORD @"7layer"
+
 #define LOGIN_USER_NAME_FIELD @"masui-usernameField"
 #define LOGIN_PASSWORD_FIELD @"masui-passwordField"
-#define FETCH_BUTTON_LABEL @"Fetch"
-#define LOCK_BUTTON_LABEL @"Lock"
-#define UNLOCK_BUTTON_LABEL @"Unlock"
-#define LOGGED_IN_TEXT @"Logged In"
-#define RED_STAPLER @"Red Stapler"
 
 @interface MasFingerprintSampleUITests : XCTestCase
+
+@property(nonatomic,strong) NSDictionary *externalStringsDict;
 
 @end
 
 @implementation MasFingerprintSampleUITests
+
+- (NSDictionary *)JSONFromFile
+{
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"ui_tests_config" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+}
 
 + (BOOL)runsForEachTargetApplicationUIConfiguration {
     return NO;
@@ -36,6 +47,7 @@
 
     // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
+    _externalStringsDict = [self JSONFromFile];
 
     // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
 }
@@ -46,11 +58,12 @@
 
 - (XCUIApplication*) initializeApp {
     XCUIApplication *app = [[XCUIApplication alloc] init];
-    [self addUIInterruptionMonitorWithDescription:INTERRUPTION_MONITOR_DESCRIPTION handler:^BOOL(XCUIElement * _Nonnull interruptingElement) {
+    NSString *allowBtnText = [_externalStringsDict objectForKey:KEY_LABEL_PERMISSIONS_ALLOW_BUTTON];
+    [self addUIInterruptionMonitorWithDescription:[_externalStringsDict objectForKey:KEY_INTERRUPT_MONITOR_DESCRIPTION] handler:^BOOL(XCUIElement * _Nonnull interruptingElement) {
 
         // handling permissions popup
         XCUIElementQuery * buttons = interruptingElement.buttons;
-        XCUIElement * allowPermissionsBtn = buttons[APP_PERMISSIONS_LABEL];
+        XCUIElement * allowPermissionsBtn = buttons[allowBtnText];
         if ([allowPermissionsBtn exists]) {
             [allowPermissionsBtn tap];
             return YES;
@@ -68,7 +81,7 @@
     [app swipeUp];
     
     // login if MainViewController is shown
-    XCUIElement * loginButton = app.staticTexts[LOGIN_BUTTON_LABEL];
+    XCUIElement * loginButton = app.staticTexts[[_externalStringsDict objectForKey:KEY_LABEL_LOGIN_BUTTON]];
     BOOL result = [loginButton waitForExistenceWithTimeout:5];
     if (result) {
         [loginButton tap];
@@ -78,28 +91,28 @@
         result = [userNameField waitForExistenceWithTimeout:20];
         XCTAssert(result);
         [userNameField tap];
-        [userNameField typeText:USER_NAME];
+        [userNameField typeText:SAMPLE_USER_NAME];
         XCUIElement * userPasswordField = elementsQuery.secureTextFields[LOGIN_PASSWORD_FIELD];
         [userPasswordField tap];
-        [userPasswordField typeText:ADMIN_PASSWORD];
-        [elementsQuery.staticTexts[LOGIN_BUTTON_LABEL] tap];
+        [userPasswordField typeText:SAMPLE_USER_PASSWORD];
+        [elementsQuery.staticTexts[[_externalStringsDict objectForKey:KEY_LABEL_LOGIN_BUTTON]] tap];
     }
-    XCUIElement * loggedInText = app.staticTexts[LOGGED_IN_TEXT];
+    XCUIElement * loggedInText = app.staticTexts[[_externalStringsDict objectForKey:KEY_TEXT_LOGGED_IN]];
     result = [loggedInText waitForExistenceWithTimeout:20];
 
     // call protected resource by tapping Fetch button
-    XCUIElement * fetchButton = app.staticTexts[FETCH_BUTTON_LABEL];
+    XCUIElement * fetchButton = app.staticTexts[[_externalStringsDict objectForKey:KEY_LABEL_FETCH_BUTTON]];
     [fetchButton tap];
     XCUIElementQuery *tablesQuery = [[XCUIApplication alloc] init].tables;
     
     // verify whether data is pulled successfully
-    result = [tablesQuery.staticTexts[RED_STAPLER]  waitForExistenceWithTimeout:10];
+    result = [tablesQuery.staticTexts[[_externalStringsDict objectForKey:KEY_TEXT_RED_STAPLER]]  waitForExistenceWithTimeout:10];
     XCTAssert(result);
     
     // lock the session
-    XCUIElement * lockButton = app.staticTexts[LOCK_BUTTON_LABEL];
+    XCUIElement * lockButton = app.staticTexts[[_externalStringsDict objectForKey:KEY_LABEL_LOCK_BUTTON]];
     [lockButton tap];
-    XCUIElement * unLockButton = app.staticTexts[UNLOCK_BUTTON_LABEL];
+    XCUIElement * unLockButton = app.staticTexts[[_externalStringsDict objectForKey:KEY_LABEL_UNLOCK_BUTTON]];
     result = [unLockButton  waitForExistenceWithTimeout:10];
     XCTAssert(result);
     
@@ -107,7 +120,7 @@
     [fetchButton tap];
     
     // data shouldn't be rendered as the fetching protected resource fails
-    result = [tablesQuery.staticTexts[RED_STAPLER]  waitForExistenceWithTimeout:10];
+    result = [tablesQuery.staticTexts[[_externalStringsDict objectForKey:KEY_TEXT_RED_STAPLER]]  waitForExistenceWithTimeout:10];
     XCTAssert(!result);
     
     // unlock the session
@@ -117,7 +130,7 @@
     
     // pull protected resource by tapping Fetch button
     [fetchButton tap];
-    result = [tablesQuery.staticTexts[RED_STAPLER]  waitForExistenceWithTimeout:10];
+    result = [tablesQuery.staticTexts[[_externalStringsDict objectForKey:KEY_TEXT_RED_STAPLER]]  waitForExistenceWithTimeout:10];
     XCTAssert(result);
     
     /* [XCUIDevice.sharedDevice pressButton:XCUIDeviceButtonHome];

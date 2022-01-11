@@ -15,6 +15,7 @@
 		0DE4D26F1DCBF29B000150AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE4D26D1DCBF29B000150AA /* Main.storyboard */; };
 		0DE4D29D1DCC01AF000150AA /* MASLoggedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE4D29C1DCC01AF000150AA /* MASLoggedInViewController.m */; };
 		48B4D55A1FE8A19A00F9C61D /* msso_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 48B4D5591FE8A19A00F9C61D /* msso_config.json */; };
+		599A3BA5278C977400EF88CA /* ui_tests_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 599A3BA4278C977400EF88CA /* ui_tests_config.json */; };
 		59F049F7278360AD007AD13D /* MasFingerprintSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F049F6278360AD007AD13D /* MasFingerprintSampleUITests.m */; };
 		59F049F9278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F049F8278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m */; };
 		9914395290CE561B51AC432F /* libPods-MasFingerprintSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C9D046BC7DF7296D8EAE507 /* libPods-MasFingerprintSample.a */; };
@@ -60,6 +61,7 @@
 		294231B0A6554545EB1A1C86 /* Pods-MasFingerprintSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasFingerprintSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample.debug.xcconfig"; sourceTree = "<group>"; };
 		48B4D5591FE8A19A00F9C61D /* msso_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = msso_config.json; sourceTree = "<group>"; };
 		581D82A7E1C7B8BC06E6F77F /* Pods-MasFingerprintSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasFingerprintSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MasFingerprintSample/Pods-MasFingerprintSample.release.xcconfig"; sourceTree = "<group>"; };
+		599A3BA4278C977400EF88CA /* ui_tests_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ui_tests_config.json; sourceTree = "<group>"; };
 		59F049F4278360AD007AD13D /* MasFingerprintSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasFingerprintSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F049F6278360AD007AD13D /* MasFingerprintSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasFingerprintSampleUITests.m; sourceTree = "<group>"; };
 		59F049F8278360AD007AD13D /* MasFingerprintSampleUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasFingerprintSampleUITestsLaunchTests.m; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		0DE4D2511DCBF29B000150AA = {
 			isa = PBXGroup;
 			children = (
+				599A3BA4278C977400EF88CA /* ui_tests_config.json */,
 				48B4D5591FE8A19A00F9C61D /* msso_config.json */,
 				0DE4D25C1DCBF29B000150AA /* MasFingerprintSample */,
 				59F049F5278360AD007AD13D /* MasFingerprintSampleUITests */,
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599A3BA5278C977400EF88CA /* ui_tests_config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

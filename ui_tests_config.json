@@ -1,0 +1,10 @@
+{
+    "interrupt.monitor.description": "TestInitialScreenHandler",
+    "label.login.button": "Login",
+    "label.fetch.button": "Fetch",
+    "label.lock.button": "Lock",
+    "label.permissions.allow.button": "Allow While Using App",
+    "label.unlock.button": "Unlock",
+    "text.logged.in": "Logged In",
+    "text.red.stapler": "Red Stapler"
+}
